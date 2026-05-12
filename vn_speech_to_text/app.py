@@ -252,4 +252,7 @@ def build_ui():
 
 
 if __name__ == "__main__":
-    build_ui().launch(server_name="127.0.0.1", server_port=7860, inbrowser=True)
+    host = os.environ.get("GRADIO_SERVER_NAME", "127.0.0.1")
+    port = int(os.environ.get("GRADIO_SERVER_PORT", "7860"))
+    in_docker = os.path.exists("/.dockerenv")
+    build_ui().launch(server_name=host, server_port=port, inbrowser=not in_docker)

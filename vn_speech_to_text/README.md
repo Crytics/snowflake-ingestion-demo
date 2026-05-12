@@ -28,7 +28,22 @@ https://pytorch.org/get-started/locally/ before `pip install -r requirements.txt
 python app.py
 ```
 
-Open http://127.0.0.1:7860, upload an audio file, click **Transcribe**.
+Open http://127.0.0.1:7860, upload an audio file, click **Run**.
+
+## Run with Docker
+
+CPU image (works everywhere):
+
+```powershell
+docker compose up --build
+```
+
+Then open http://127.0.0.1:7860. The HF model cache is stored in a named volume (`hf-cache`) so subsequent runs skip the ~7 GB download.
+
+For NVIDIA GPU acceleration:
+1. Install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) on the host.
+2. Uncomment the `deploy.resources` block in [`docker-compose.yml`](docker-compose.yml).
+3. `docker compose up --build`.
 
 First run will download the PhoWhisper-large weights (~3 GB) into the HF cache.
 
