@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+.venv
+venv
+.env
+transcription.txt
+*.wav
+*.mp3
+*.m4a
+.git
+.gitignore
+README.md

@@ -1,0 +1,9 @@
+torch
+torchaudio
+transformers
+accelerate
+sentencepiece
+sacremoses
+soundfile
+librosa
+gradio

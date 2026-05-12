@@ -1,0 +1,23 @@
+services:
+  vn-stt:
+    build: .
+    image: vn-stt:latest
+    container_name: vn-stt
+    ports:
+      - "7860:7860"
+    volumes:
+      - hf-cache:/cache/huggingface
+    restart: unless-stopped
+    # --- GPU support (NVIDIA only) ---
+    # 1. Install the NVIDIA Container Toolkit on the host.
+    # 2. Uncomment the block below and run: docker compose up
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+volumes:
+  hf-cache:
